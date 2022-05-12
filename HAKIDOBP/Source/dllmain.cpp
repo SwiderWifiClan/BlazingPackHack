@@ -115,8 +115,12 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 
     if (show)
     {
+#pragma region  menu
+
+
+
         ImGui::SetNextWindowSize({ 650, 500 });
-        ImGui::Begin("SwiderBP ", &show, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse  | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
+        ImGui::Begin("SwiderBP", &show, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse  | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoScrollWithMouse);
         ImGui::SetColorEditOptions(ImGuiColorEditFlags_RGB | ImGuiColorEditFlags_NoOptions | ImGuiColorEditFlags_NoInputs);
         ImGui::SetCursorPosX((ImGui::GetWindowWidth() - ImGui::CalcTextSize("BlazingHack - Swider").x) * 0.5f);
         ImGui::Text(xorstr_("BlazingPack -"));
@@ -205,7 +209,7 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         ImGui::EndChild();
         ImGui::PopStyleColor(1);
     }
-
+#pragma endregion
     ImGui::End();
     ImGui::EndFrame();
     ImGui::Render();
@@ -216,6 +220,10 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 
 DWORD WINAPI unload(HMODULE hModule)
 {
+#pragma region  unlaod dllki
+
+
+
     while (true)
     {
 
@@ -226,9 +234,11 @@ DWORD WINAPI unload(HMODULE hModule)
             SetWindowLongPtr(Window, GWL_WNDPROC, (LONG_PTR)oWndProc);    //unlodowanie dll
             FreeLibraryAndExitThread(hModule, 0);
         }
+        Sleep(5);
     }
     FreeConsole();
     return 0;
+#pragma endregion
 }
 BOOL __stdcall hglCallList(GLuint list) {
 
@@ -240,6 +250,7 @@ BOOL __stdcall hglCallList(GLuint list) {
         glClear(0x100u);
         glEnable(0xB71u);
     }
+
     if (opcje::wirefrime) {
 
         glDisable(GL_DEPTH_TEST);

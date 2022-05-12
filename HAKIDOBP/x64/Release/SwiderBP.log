@@ -1,0 +1,45 @@
+﻿  dllmain.cpp
+C:\sourcy\bp\SwiderBP\HAKIDOBP\jellomedium.h(3,7): warning C4114: ten sam kwalifikator typu użyty więcej niż raz
+C:\sourcy\bp\SwiderBP\HAKIDOBP\Source\dllmain.cpp(65,56): warning C4305: "argument": obcięcie z "double" do "float"
+LINK : warning LNK4098: domyślna biblioteka „LIBCMT” powoduje konflikt z innymi bibliotekami; użyj opcji /NODEFAULTLIB:biblioteka
+  Trwa generowanie kodu
+  13 of 1102 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    8 functions were new in current compilation
+    13 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+LINK : warning LNK4286: symbol „__glewDeleteBuffers” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewLinkProgram” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewDeleteShader” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGenBuffers” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetProgramInfoLog” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewDetachShader” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewUniformMatrix4fv” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBlendEquationSeparate” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGenVertexArrays” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBlendEquation” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewShaderSource” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewDeleteProgram” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewActiveTexture” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewAttachShader” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBufferData” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetUniformLocation” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetStringi” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBlendFuncSeparate” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewDeleteVertexArrays” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetProgramiv” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetShaderInfoLog” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewUniform1i” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewCreateProgram” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBindBuffer” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewCreateShader” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetAttribLocation” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewCompileShader” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewGetShaderiv” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewDrawElementsBaseVertex” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewVertexAttribPointer” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewUseProgram” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBindSampler” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewBindVertexArray” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+LINK : warning LNK4286: symbol „__glewEnableVertexAttribArray” zdefiniowany w elemencie „glew32s.lib(glew.obj)” jest importowany przez element „imgui_impl_opengl3.obj”
+glew32s.lib(glew.obj) : warning LNK4099: nie znaleziono pliku PDB „glew_static.pdb” z elementem „glew32s.lib(glew.obj)” lub w pozycji „C:\sourcy\bp\SwiderBP\x64\Release\glew_static.pdb”; obiekt zostanie skonsolidowany bez informacji debugowania
+  SwiderBP.vcxproj -> C:\sourcy\bp\SwiderBP\x64\Release\WifiClanSwider.dll
