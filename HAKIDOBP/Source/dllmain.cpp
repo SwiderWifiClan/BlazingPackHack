@@ -2,6 +2,9 @@
 #include "..//jellomedium.h"
 #include "../bool.h"
 #include "../xorstr.hpp"
+#include "../scan.h"
+#include <TlHelp32.h>
+using namespace std;
 
 twglSwapBuffers oSwapBuffers = NULL;
 tglCallList oglCallList;
@@ -102,6 +105,11 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
     if (GetAsyncKeyState(bindy::wirefrimebind) & 1) {
         opcje::wirefrime = !opcje::wirefrime;
     }
+
+
+    if (GetAsyncKeyState(bindy::chamsbind) & 1) {
+        opcje::flatchams = !opcje::flatchams;
+    }
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplWin32_NewFrame();
     ImGui::NewFrame();
@@ -174,6 +182,10 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         ImGui::Checkbox("Wirefrime", &opcje::wirefrime);
         ImGui::SameLine(0, 5);
         ImGui::Bind("##Wirefrime Bind", &bindy::wirefrimebind, ImVec2(45, 25));
+        ImGui::SetCursorPosX(5);
+        ImGui::Checkbox("Chams", &opcje::flatchams);;
+        ImGui::SameLine(0, 5);
+        ImGui::Bind("##chamsbind Bind", &bindy::chamsbind, ImVec2(45, 25));
         ImGui::EndChild();
         ImGui::SameLine(0, 17);
         ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(21, 21, 21, 255));
@@ -194,6 +206,40 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 
         ImGui::EndChild();
         }
+        if (opcje::tab == 2) {
+            ImGui::SetCursorPosX(17);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(21, 21, 21, 255));
+            ImGui::BeginChild("##General", ImVec2(300, 370), true);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(25, 25, 25, 255));
+            ImGui::SetCursorPosY(0);
+            ImGui::BeginChild("##TextGeneral", ImVec2(300, 30), true);
+            ImGui::SetCursorPosX(5);
+            ImGui::SetCursorPosY(5);
+
+            ImGui::Text("General");
+
+            ImGui::PopStyleColor(2);
+            ImGui::EndChild();
+
+            ImGui::EndChild();
+            ImGui::SameLine(0, 17);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(21, 21, 21, 255));
+            ImGui::BeginChild("##Misc", ImVec2(300, 370), true);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(25, 25, 25, 255));
+            ImGui::SetCursorPosY(0);
+            ImGui::BeginChild("##TextMisc", ImVec2(300, 30), true);
+            ImGui::SetCursorPosX(5);
+            ImGui::SetCursorPosY(5);
+
+            ImGui::Text("Misc");
+            ImGui::PopStyleColor(2);
+            ImGui::EndChild();
+            ImGui::SetCursorPosX(5);
+
+
+
+            ImGui::EndChild();
+        }
         ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(21, 21, 21, 255));
         ImGui::SetCursorPosY(465);
         ImGui::BeginChild("##DOL", ImVec2(ImGui::GetContentRegionAvail().x, 35), true);
@@ -202,8 +248,7 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
         ImGui::SetCursorPosX(5);
         ImGui::Text(xorstr_("Made By Swider <3"));
         ImGui::SameLine(0, 380);
-        ImGui::Text("Build Date: 11.05.2022");
-
+        ImGui::Text("Build Date: 14.05.2022");
 
 
         ImGui::EndChild();
@@ -220,10 +265,10 @@ BOOL __stdcall hkSwapBuffers(_In_ HDC hDc)
 
 DWORD WINAPI unload(HMODULE hModule)
 {
+
+
+
 #pragma region  unlaod dllki
-
-
-
     while (true)
     {
 
@@ -246,11 +291,27 @@ BOOL __stdcall hglCallList(GLuint list) {
 
 
     if (opcje::xray) {
-        glDepthFunc(0x203u);
-        glClear(0x100u);
-        glEnable(0xB71u);
+
+        glDepthRange(1, 0);
+        oglCallList(list);
+        glDepthRange(0, 1);
+    }
+    else {
+        glDepthRange(0, 1);
     }
 
+    if (opcje::flatchams) {
+        glColor3f(0.6, 0.317, 0.882);
+        glDepthRange(1, 0);
+        glDisable(GL_TEXTURE_2D);
+        oglCallList(list);
+        glDepthRange(0, 1);
+        glEnable(GL_TEXTURE_2D);
+    }
+    else {
+        glDepthRange(0, 1);
+        glEnable(GL_TEXTURE_2D);
+    }
     if (opcje::wirefrime) {
 
         glDisable(GL_DEPTH_TEST);
@@ -288,20 +349,47 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 
 bool menuShown = false;
+uintptr_t GetModuleBaseAddress(DWORD procId, const wchar_t* modName)
+{
+    uintptr_t modBaseAddr = 0;
+    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE | TH32CS_SNAPMODULE32, procId);
+    if (hSnap != INVALID_HANDLE_VALUE)
+    {
+        MODULEENTRY32 modEntry;
+        modEntry.dwSize = sizeof(modEntry);
+        if (Module32First(hSnap, &modEntry))
+        {
+            do
+            {
+                if (!_wcsicmp(modEntry.szModule, modName))
+                {
+                    modBaseAddr = (uintptr_t)modEntry.modBaseAddr;
+                    break;
+                }
+            } while (Module32Next(hSnap, &modEntry));
+        }
+    }
+    CloseHandle(hSnap);
+    return modBaseAddr;
+}
+
+
+
+
+
 
 
 
 DWORD WINAPI Initalization(__in  LPVOID lpParameter)
 {
-    while (GetModuleHandle("opengl32.dll") == NULL) { Sleep(100); }
+    while (GetModuleHandle(L"opengl32.dll") == NULL) { Sleep(100); }
     Sleep(100);
 
-    HMODULE hMod = GetModuleHandle("opengl32.dll");
+    HMODULE hMod = GetModuleHandle(L"opengl32.dll");
     if (hMod)
     {
         void* ptr = GetProcAddress(hMod, "wglSwapBuffers");
         void* call = GetProcAddress(hMod, "glCallList");
-
 
 
         MH_Initialize();
