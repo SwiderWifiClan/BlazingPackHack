@@ -3,6 +3,7 @@
   <ul>
   <li>Wireframe</li>
   <li>X-ray</li>
+  <li>Chams</li>
 </ul>
 <h2>Requirements</h2>
 <p>Options->Video Settings->Use VBO's ON</p>
